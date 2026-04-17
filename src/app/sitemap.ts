@@ -1,38 +1,19 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://auction-calc.vercel.app";
-
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: BASE_URL,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-    {
-      url: `${BASE_URL}/auction-return`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/acquisition-tax`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/loan-interest`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/rental-yield`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
+  const base = "https://tax-calc.vercel.app";
+  const pages = [
+    "",
+    "/transfer-tax",
+    "/acquisition-tax",
+    "/property-tax",
+    "/rental-income-tax",
   ];
+
+  return pages.map((path) => ({
+    url: `${base}${path}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: path === "" ? 1 : 0.8,
+  }));
 }

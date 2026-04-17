@@ -1,37 +1,38 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CoupangBanner, BookRecommendations } from "@/components/CoupangBanner";
+import KakaoAdFit from "@/components/KakaoAdFit";
+import AdBanner from "@/components/AdBanner";
 
 export const metadata: Metadata = {
-  title: "경매 계산기 | 부동산 경매 수익률·취득세·대출이자 무료 계산",
+  title: "부동산 세금 계산기 | 양도세·취득세·종부세·임대소득세 무료 계산",
   description:
-    "부동산 경매 투자에 필요한 모든 계산을 한 곳에서. 경매 수익률, 취득세, 대출이자, 임대수익률 계산기를 무료로 이용하세요.",
+    "부동산 거래 시 필요한 모든 세금을 한 곳에서 계산하세요. 양도소득세, 취득세, 종합부동산세, 임대소득세 계산기 무료 제공.",
 };
 
 const CALCULATORS = [
   {
-    href: "/auction-return",
-    icon: "📊",
-    title: "경매 수익률 계산기",
-    desc: "낙찰가, 제비용, 매도가를 입력하면 순수익과 수익률을 바로 확인할 수 있어요.",
+    href: "/transfer-tax",
+    icon: "💸",
+    title: "양도소득세 계산기",
+    desc: "매도가, 취득가, 보유기간을 입력하면 양도소득세를 바로 확인할 수 있어요.",
   },
   {
     href: "/acquisition-tax",
     icon: "🏛️",
     title: "취득세 계산기",
-    desc: "낙찰가 기준으로 취득세, 지방교육세, 농어촌특별세까지 한번에 계산해요.",
+    desc: "매매가 기준으로 취득세, 지방교육세, 농어촌특별세까지 한번에 계산해요.",
   },
   {
-    href: "/loan-interest",
-    icon: "💰",
-    title: "대출이자 계산기",
-    desc: "원리금균등, 원금균등, 만기일시 상환 방식별 월 납입금과 총 이자를 비교해요.",
+    href: "/property-tax",
+    icon: "🏢",
+    title: "종합부동산세 계산기",
+    desc: "공시가격과 보유 주택 수를 입력하면 종부세를 예상 계산해요.",
   },
   {
-    href: "/rental-yield",
-    icon: "🏠",
-    title: "임대수익률 계산기",
-    desc: "낙찰가 대비 월세·전세 수익률과 연간 순수익을 계산해요.",
+    href: "/rental-income-tax",
+    icon: "🔑",
+    title: "임대소득세 계산기",
+    desc: "연간 임대 수입에 대한 소득세를 분리과세·종합과세 비교로 계산해요.",
   },
 ];
 
@@ -40,13 +41,13 @@ export default function Home() {
     <>
       <section className="text-center mb-12">
         <h1 className="text-3xl font-bold mb-3">
-          부동산 경매 투자,
-          <br className="sm:hidden" /> 계산부터 시작하세요
+          부동산 세금,
+          <br className="sm:hidden" /> 미리 계산하세요
         </h1>
         <p className="text-muted text-lg max-w-xl mx-auto">
-          경매 수익률, 취득세, 대출이자, 임대수익률까지.
+          양도소득세, 취득세, 종합부동산세, 임대소득세까지.
           <br />
-          복잡한 계산을 쉽고 빠르게 해결하세요.
+          복잡한 부동산 세금을 쉽고 빠르게 계산하세요.
         </p>
       </section>
 
@@ -66,42 +67,28 @@ export default function Home() {
         ))}
       </div>
 
-      <CoupangBanner />
+      <KakaoAdFit width={728} height={90} />
+      <AdBanner />
 
-      <BookRecommendations />
-
-      {/* AdSense 광고 영역 */}
-      <div className="mt-8 text-center">
-        <ins
-          className="adsbygoogle"
-          style={{ display: "block" }}
-          data-ad-client="ca-pub-XXXXXXXXXX"
-          data-ad-slot="XXXXXXXXXX"
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        />
-      </div>
-
-      {/* FAQ - SEO용 */}
       <section className="mt-16">
         <h2 className="text-xl font-bold mb-6">자주 묻는 질문</h2>
         <div className="space-y-4">
           {[
             {
-              q: "경매 수익률은 어떻게 계산하나요?",
-              a: "순수익(매도가 - 낙찰가 - 총 제비용)을 총 투자금(낙찰가 + 총 제비용)으로 나눈 뒤 100을 곱합니다. 예: 1억에 낙찰받아 제비용 500만원, 1.3억에 매도하면 수익률 약 23.8%입니다.",
+              q: "양도소득세는 언제 내나요?",
+              a: "부동산을 매도한 날이 속하는 달의 말일부터 2개월 이내에 양도소득세를 예정 신고·납부해야 합니다.",
             },
             {
-              q: "경매 취득세는 일반 매매와 다른가요?",
-              a: "세율은 동일합니다. 다만 경매는 낙찰가(매각가)가 과세표준이 되며, 법원 관련 비용(인지대, 송달료 등)이 추가로 발생합니다.",
+              q: "1세대 1주택 비과세 조건은?",
+              a: "2년 이상 보유(조정대상지역은 2년 거주 포함)하고 매도가 12억원 이하인 경우 양도소득세가 비과세됩니다.",
             },
             {
-              q: "경매 대출은 얼마까지 가능한가요?",
-              a: "일반적으로 감정가의 60~80% 범위에서 대출이 가능하지만, 물건 유형·지역·개인 신용에 따라 달라집니다. 대출이자 계산기로 예상 이자를 미리 확인하세요.",
+              q: "종합부동산세는 누가 내나요?",
+              a: "매년 6월 1일 기준 공시가격 합산액이 주택 9억원(1세대 1주택 12억원), 토지 5억원을 초과하면 납부 대상입니다.",
             },
             {
-              q: "임대수익률 몇 % 이상이면 괜찮은가요?",
-              a: "일반적으로 연 5% 이상이면 양호, 8% 이상이면 우수로 봅니다. 다만 공실률, 수선비, 세금 등을 고려해야 실질 수익률을 알 수 있습니다.",
+              q: "임대소득세 분리과세가 유리한가요?",
+              a: "연간 주택 임대 수입 2,000만원 이하이면 14% 분리과세를 선택할 수 있습니다. 다른 소득이 많으면 분리과세가 유리합니다.",
             },
           ].map((faq, i) => (
             <details
@@ -115,16 +102,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* JSON-LD 구조화 데이터 */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            name: "경매 계산기",
+            name: "부동산 세금 계산기",
             description:
-              "부동산 경매 투자자를 위한 무료 수익률·취득세·대출이자·임대수익률 계산기",
+              "양도소득세, 취득세, 종합부동산세, 임대소득세를 무료로 계산하는 웹 애플리케이션",
             applicationCategory: "FinanceApplication",
             operatingSystem: "All",
             offers: { "@type": "Offer", price: "0", priceCurrency: "KRW" },
@@ -140,34 +126,18 @@ export default function Home() {
             mainEntity: [
               {
                 "@type": "Question",
-                name: "경매 수익률은 어떻게 계산하나요?",
+                name: "양도소득세는 언제 내나요?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "순수익(매도가 - 낙찰가 - 총 제비용)을 총 투자금(낙찰가 + 총 제비용)으로 나눈 뒤 100을 곱합니다.",
+                  text: "부동산을 매도한 날이 속하는 달의 말일부터 2개월 이내에 양도소득세를 예정 신고·납부해야 합니다.",
                 },
               },
               {
                 "@type": "Question",
-                name: "경매 취득세는 일반 매매와 다른가요?",
+                name: "1세대 1주택 비과세 조건은?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "세율은 동일합니다. 다만 경매는 낙찰가가 과세표준이 되며, 법원 관련 비용이 추가됩니다.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "경매 대출은 얼마까지 가능한가요?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "일반적으로 감정가의 60~80% 범위에서 대출이 가능하지만, 물건 유형·지역·개인 신용에 따라 달라집니다.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "임대수익률 몇 % 이상이면 괜찮은가요?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "일반적으로 연 5% 이상이면 양호, 8% 이상이면 우수로 봅니다.",
+                  text: "2년 이상 보유(조정대상지역은 2년 거주 포함)하고 매도가 12억원 이하인 경우 비과세됩니다.",
                 },
               },
             ],

@@ -15,24 +15,24 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "경매 계산기 | 부동산 경매 수익률·취득세·대출이자 계산",
-    template: "%s | 경매 계산기",
+    default: "부동산 세금 계산기 | 양도세·취득세·종부세·임대소득세 무료 계산",
+    template: "%s | 부동산 세금 계산기",
   },
   description:
-    "부동산 경매 투자자를 위한 무료 계산기. 경매 수익률, 취득세, 대출이자, 임대수익률을 한 곳에서 빠르게 계산하세요.",
+    "부동산 양도소득세, 취득세, 종합부동산세, 임대소득세를 무료로 계산하세요. 2026년 최신 세율 반영.",
   keywords: [
-    "경매 계산기",
-    "경매 수익률",
+    "양도세 계산기",
     "취득세 계산기",
-    "부동산 경매",
-    "대출이자 계산기",
-    "임대수익률",
-    "경매 투자",
+    "종부세 계산기",
+    "임대소득세 계산기",
+    "부동산 세금",
+    "양도소득세",
+    "종합부동산세",
   ],
   openGraph: {
-    title: "경매 계산기 | 부동산 경매 수익률·취득세·대출이자 계산",
+    title: "부동산 세금 계산기 | 양도세·취득세·종부세·임대소득세",
     description:
-      "부동산 경매 투자자를 위한 무료 계산기. 수익률, 취득세, 대출이자, 임대수익률을 한 곳에서.",
+      "부동산 세금 한 곳에서 계산. 양도세, 취득세, 종부세, 임대소득세 무료 계산기.",
     type: "website",
     locale: "ko_KR",
   },
@@ -40,10 +40,10 @@ export const metadata: Metadata = {
 };
 
 const NAV_ITEMS = [
-  { href: "/auction-return", label: "경매 수익률" },
+  { href: "/transfer-tax", label: "양도세" },
   { href: "/acquisition-tax", label: "취득세" },
-  { href: "/loan-interest", label: "대출이자" },
-  { href: "/rental-yield", label: "임대수익률" },
+  { href: "/property-tax", label: "종부세" },
+  { href: "/rental-income-tax", label: "임대소득세" },
 ];
 
 export default function RootLayout({
@@ -72,23 +72,20 @@ export default function RootLayout({
             `,
           }}
         />
-        {/* AdSense - 승인 후 ca-pub-XXXXXXXXXX를 실제 ID로 교체 */}
+        {/* AdSense */}
         <script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3913442122539155"
           crossOrigin="anonymous"
         />
-        {/* 카카오 애드핏 - 승인 후 DAN-XXXXXXXXXX를 실제 광고단위 ID로 교체 */}
-        <script
-          async
-          src="//t1.daumcdn.net/kas/static/ba.min.js"
-        />
+        {/* 카카오 애드핏 */}
+        <script async src="//t1.daumcdn.net/kas/static/ba.min.js" />
       </head>
       <body className="min-h-full flex flex-col">
         <header className="border-b border-card-border bg-card-bg sticky top-0 z-50">
           <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
             <Link href="/" className="text-lg font-bold text-primary">
-              경매 계산기
+              부동산 세금 계산기
             </Link>
             <nav className="flex gap-1">
               {NAV_ITEMS.map((item) => (
@@ -111,12 +108,11 @@ export default function RootLayout({
         <footer className="border-t border-card-border py-6 text-center text-sm text-muted">
           <div className="max-w-5xl mx-auto px-4">
             <p>
-              본 계산기는 참고용이며, 실제 투자 결정 시 전문가 상담을
-              권장합니다.
+              본 계산기는 참고용이며, 정확한 세금은 세무사 상담을 권장합니다.
             </p>
             <p className="mt-1">
-              &copy; {new Date().getFullYear()} 경매 계산기. All rights
-              reserved.
+              운영: 온기획(ON) | &copy; {new Date().getFullYear()} 부동산 세금
+              계산기. All rights reserved.
             </p>
           </div>
         </footer>
