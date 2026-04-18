@@ -83,17 +83,16 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <header className="border-b border-card-border bg-card-bg sticky top-0 z-50">
-          <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between gap-2">
-            <Link href="/" className="text-lg font-bold text-primary shrink-0">
-              <span className="sm:hidden">세금 계산기</span>
-              <span className="hidden sm:inline">부동산 세금 계산기</span>
+          <div className="max-w-5xl mx-auto px-4 py-2 flex flex-col sm:flex-row sm:h-14 sm:items-center sm:justify-between gap-1">
+            <Link href="/" className="text-lg font-bold text-primary">
+              부동산 세금 계산기
             </Link>
-            <nav className="flex gap-1 overflow-x-auto">
+            <nav className="flex gap-0.5 overflow-x-auto">
               {NAV_ITEMS.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="px-2 py-1.5 text-sm rounded-md hover:bg-accent transition-colors text-foreground whitespace-nowrap shrink-0"
+                  className="px-2.5 py-1 text-sm rounded-md hover:bg-accent transition-colors text-foreground whitespace-nowrap"
                 >
                   {item.label}
                 </Link>
