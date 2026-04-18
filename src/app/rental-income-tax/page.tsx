@@ -95,9 +95,9 @@ export default function RentalIncomeTaxPage() {
       <div className="grid md:grid-cols-2 gap-8">
         <div className="space-y-4">
           <h2 className="font-semibold text-lg border-b border-card-border pb-2">소득 정보</h2>
-          <CalcInput label="연간 주택 임대 수입" value={rentalIncome} onChange={setRentalIncome} />
-          <CalcInput label="다른 종합소득 (근로·사업 등)" value={otherIncome} onChange={setOtherIncome} />
-          <CalcInput label="임대 필요경비 (수선비, 이자 등)" value={expenses} onChange={setExpenses} />
+          <CalcInput label="연간 임대 수입" value={rentalIncome} onChange={setRentalIncome} />
+          <CalcInput label="기타 종합소득" value={otherIncome} onChange={setOtherIncome} helpText="근로·사업 등" />
+          <CalcInput label="필요경비" value={expenses} onChange={setExpenses} helpText="수선비, 이자 등" />
 
           <label className="flex items-center gap-3 p-3 rounded-lg border border-card-border cursor-pointer">
             <input

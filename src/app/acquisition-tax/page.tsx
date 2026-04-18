@@ -119,7 +119,7 @@ export default function AcquisitionTaxPage() {
             <h2 className="font-semibold text-lg mb-4">계산 결과</h2>
             <div className="space-y-1">
               <ResultRow label={`취득세 (${result.acqRate}%)`} value={`${fmt(result.acqTax)} 만원`} />
-              <ResultRow label="지방교육세 (취득세의 10%)" value={`${fmt(result.localEdu)} 만원`} sub />
+              <ResultRow label="지방교육세 (10%)" value={`${fmt(result.localEdu)} 만원`} sub />
               <ResultRow label="농어촌특별세" value={`${fmt(result.rural)} 만원`} sub />
               <ResultRow label="총 세금" value={`${fmt(result.total)} 만원`} highlight />
               <ResultRow label="실효세율" value={`${result.effectiveRate}%`} />

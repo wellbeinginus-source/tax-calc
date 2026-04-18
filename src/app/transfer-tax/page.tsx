@@ -141,9 +141,9 @@ export default function TransferTaxPage() {
             거래 정보
           </h2>
 
-          <CalcInput label="매도가 (양도가액)" value={salePrice} onChange={setSalePrice} />
-          <CalcInput label="취득가 (매입가)" value={buyPrice} onChange={setBuyPrice} />
-          <CalcInput label="필요경비 (중개수수료, 수리비 등)" value={expenses} onChange={setExpenses} />
+          <CalcInput label="매도가" value={salePrice} onChange={setSalePrice} helpText="양도가액" />
+          <CalcInput label="취득가" value={buyPrice} onChange={setBuyPrice} helpText="매입가" />
+          <CalcInput label="필요경비" value={expenses} onChange={setExpenses} helpText="중개수수료, 수리비 등" />
           <CalcInput label="보유기간" value={holdingYears} onChange={setHoldingYears} unit="년" placeholder="0" />
 
           <div>
@@ -183,7 +183,7 @@ export default function TransferTaxPage() {
               <ResultRow label="양도차익" value={`${fmt(result.gain)} 만원`} />
               {result.deduction > 0 && (
                 <ResultRow
-                  label={`장기보유특별공제 (${result.deductionRate}%)`}
+                  label={`장기보유공제 (${result.deductionRate}%)`}
                   value={`-${fmt(result.deduction)} 만원`}
                   sub
                 />
