@@ -31,8 +31,8 @@ function calcPropertyTax(
   const taxBase = Math.max(totalPublicPrice - deduction, 0);
   if (taxBase <= 0) return { taxBase: 0, tax: 0, rate: 0, deduction };
 
-  // 공정시장가액비율 100%
-  const assessed = taxBase;
+  // 공정시장가액비율 60% (2022~2024년 한시 인하, 2026년 현재 유지 중)
+  const assessed = Math.round(taxBase * 0.60);
 
   let tax: number;
   let rate: number;

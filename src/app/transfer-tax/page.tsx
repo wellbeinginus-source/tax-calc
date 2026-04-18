@@ -42,14 +42,14 @@ function calcProgressiveTax(taxableIncome: number): { tax: number; rate: number 
   return { tax: 0, rate: 0 };
 }
 
-// 장기보유특별공제 (2년 이상, 최대 30% / 1세대1주택 최대 80%)
-function longTermDeductionRate(holdingYears: number, isExempt: boolean): number {
+// 장기보유특별공제 (1세대1주택: 보유 연4%+거주 연4% 각 최대40%, 합계 최대80% / 일반: 연2% 최대30%)
+function longTermDeductionRate(holdingYears: number, residenceYears: number, isExempt: boolean): number {
   if (holdingYears < 3) return 0;
   if (isExempt) {
-    // 1세대 1주택: 보유 연 4% + 거주 연 4% (간소화: 보유만 적용)
-    return Math.min(holdingYears * 4, 80);
+    const holdingRate = Math.min(holdingYears * 4, 40);
+    const residenceRate = residenceYears >= 2 ? Math.min(residenceYears * 4, 40) : 0;
+    return Math.min(holdingRate + residenceRate, 80);
   }
-  // 일반: 연 2%, 최대 30%
   return Math.min((holdingYears - 2) * 2, 30);
 }
 
@@ -63,6 +63,7 @@ export default function TransferTaxPage() {
   const [buyPrice, setBuyPrice] = useState("");
   const [expenses, setExpenses] = useState("");
   const [holdingYears, setHoldingYears] = useState("");
+  const [residenceYears, setResidenceYears] = useState("");
   const [holdingType, setHoldingType] = useState<HoldingType>("over2y");
 
   const result = useMemo(() => {
@@ -70,6 +71,7 @@ export default function TransferTaxPage() {
     const buy = Number(buyPrice) || 0;
     const exp = Number(expenses) || 0;
     const years = Number(holdingYears) || 0;
+    const resYears = Number(residenceYears) || 0;
 
     const gain = sale - buy - exp; // 양도차익
     if (gain <= 0) {
@@ -88,7 +90,7 @@ export default function TransferTaxPage() {
     }
 
     // 장기보유특별공제
-    const ltRate = longTermDeductionRate(years, isExempt);
+    const ltRate = longTermDeductionRate(years, resYears, isExempt);
     const ltDeduction = Math.round(taxableGain * (ltRate / 100));
     const afterLt = taxableGain - ltDeduction;
 
@@ -126,7 +128,7 @@ export default function TransferTaxPage() {
       effectiveRate: gain > 0 ? ((totalTax / gain) * 100).toFixed(1) : "0.0",
       netProfit: gain - totalTax,
     };
-  }, [salePrice, buyPrice, expenses, holdingYears, holdingType]);
+  }, [salePrice, buyPrice, expenses, holdingYears, residenceYears, holdingType]);
 
   return (
     <>
@@ -145,6 +147,9 @@ export default function TransferTaxPage() {
           <CalcInput label="취득가" value={buyPrice} onChange={setBuyPrice} helpText="매입가" />
           <CalcInput label="필요경비" value={expenses} onChange={setExpenses} helpText="중개수수료, 수리비 등" />
           <CalcInput label="보유기간" value={holdingYears} onChange={setHoldingYears} unit="년" placeholder="0" />
+          {holdingType === "exempt" && (
+            <CalcInput label="거주기간" value={residenceYears} onChange={setResidenceYears} unit="년" placeholder="0" helpText="1세대1주택 장기보유공제 거주분 적용" />
+          )}
 
           <div>
             <label className="block text-sm font-medium mb-2">과세 유형</label>
