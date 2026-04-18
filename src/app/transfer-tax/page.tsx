@@ -209,10 +209,7 @@ export default function TransferTaxPage() {
 
             <div className="mt-6 p-3 bg-accent rounded-lg text-sm text-muted">
               <p className="font-medium mb-1">참고</p>
-              <p>
-                실제 세금은 비과세 요건, 감면, 다주택 중과 등에 따라 달라질 수 있습니다.
-                정확한 계산은 세무사 상담을 권장합니다.
-              </p>
+              <p>다주택자 중과세율(+20~30%p)은 현재 한시 배제 중이나 추후 부활 가능합니다. 비과세 요건·감면·조정지역 여부에 따라 실제 세금이 달라지므로 세무사 상담을 권장합니다.</p>
             </div>
           </div>
         </div>

@@ -136,10 +136,7 @@ export default function PropertyTaxPage() {
 
             <div className="mt-6 p-3 bg-accent rounded-lg text-sm text-muted">
               <p className="font-medium mb-1">참고</p>
-              <p>
-                실제 종부세는 세부담 상한, 고령자·장기보유 공제 등에 따라 달라질 수 있습니다.
-                매년 6월 1일 기준으로 부과됩니다.
-              </p>
+              <p>공정시장가액비율·세부담 상한·고령자/장기보유 공제 등에 따라 실제 세액이 달라집니다. 매년 6월 1일 기준 부과. 정확한 계산은 세무사 상담을 권장합니다.</p>
             </div>
           </div>
         </div>
