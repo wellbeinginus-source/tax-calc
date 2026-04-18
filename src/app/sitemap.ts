@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://tax-calc.vercel.app";
+  const base = "https://tax-calc-five.vercel.app";
   const pages = [
     "",
     "/transfer-tax",
