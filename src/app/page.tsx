@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import KakaoAdFit from "@/components/KakaoAdFit";
 import AdBanner from "@/components/AdBanner";
+import { CoupangBanner, BookRecommendations } from "@/components/CoupangBanner";
 
 export const metadata: Metadata = {
   title: "부동산 세금 계산기 | 양도세·취득세·종부세·임대소득세 무료 계산",
@@ -69,6 +70,7 @@ export default function Home() {
 
       <KakaoAdFit width={728} height={90} />
       <AdBanner />
+      <CoupangBanner />
 
       <section className="mt-16">
         <h2 className="text-xl font-bold mb-6">자주 묻는 질문</h2>
@@ -101,6 +103,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <BookRecommendations />
 
       <script
         type="application/ld+json"

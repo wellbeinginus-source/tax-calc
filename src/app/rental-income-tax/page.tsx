@@ -5,6 +5,7 @@ import CalcInput from "@/components/CalcInput";
 import ResultRow from "@/components/ResultRow";
 import AdBanner from "@/components/AdBanner";
 import KakaoAdFit from "@/components/KakaoAdFit";
+import { CoupangBanner, TaxConsultCTA } from "@/components/CoupangBanner";
 
 // 종합소득세 누진세율
 const BRACKETS = [
@@ -177,6 +178,9 @@ export default function RentalIncomeTaxPage() {
           </details>
         </div>
       </section>
+
+      <TaxConsultCTA />
+      <CoupangBanner />
 
       <script
         type="application/ld+json"

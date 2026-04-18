@@ -1,23 +1,21 @@
-import Link from "next/link";
-
 const COUPANG_LINKS = {
   goldbox: "https://link.coupang.com/a/ep0BMn",
 };
 
 const BOOKS = [
   {
-    title: "나는 경매로 꼬마빌딩 샀다",
-    desc: "경매 초보도 따라할 수 있는 실전 투자 가이드",
+    title: "대한민국 부동산 절세 전략",
+    desc: "양도세·취득세·종부세, 합법적으로 줄이는 방법",
     link: COUPANG_LINKS.goldbox,
   },
   {
-    title: "부동산 경매 바이블",
-    desc: "권리분석부터 명도까지, 경매의 모든 것",
+    title: "나는 부동산 세금이 두렵지 않다",
+    desc: "1세대 1주택부터 다주택까지 세금 완전 정복",
     link: COUPANG_LINKS.goldbox,
   },
   {
-    title: "경매 수익률의 비밀",
-    desc: "수익률 높은 물건 고르는 실전 노하우",
+    title: "부동산 양도소득세 실전 가이드",
+    desc: "2026년 최신 세율·공제 기준 반영 실전서",
     link: COUPANG_LINKS.goldbox,
   },
 ];
@@ -44,7 +42,7 @@ export function CoupangBanner() {
 export function BookRecommendations() {
   return (
     <section className="my-10">
-      <h2 className="text-xl font-bold mb-4">경매 투자 추천 도서</h2>
+      <h2 className="text-xl font-bold mb-4">부동산 세금 추천 도서</h2>
       <div className="grid sm:grid-cols-3 gap-4">
         {BOOKS.map((book) => (
           <a
@@ -71,12 +69,12 @@ export function BookRecommendations() {
   );
 }
 
-export function LoanCompareCTA() {
+export function TaxConsultCTA() {
   return (
     <div className="my-8 p-5 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl">
-      <h3 className="font-bold text-lg mb-1">대출 금리 비교하고 계세요?</h3>
+      <h3 className="font-bold text-lg mb-1">세금 신고, 직접 하기 어려우신가요?</h3>
       <p className="text-sm text-muted mb-3">
-        경매 잔금 대출, 가장 낮은 금리를 한번에 비교해 보세요.
+        양도소득세 신고는 실수 시 가산세가 붙습니다. 전문가 도움을 받아보세요.
       </p>
       <div className="flex flex-wrap gap-2">
         <a
@@ -85,7 +83,7 @@ export function LoanCompareCTA() {
           rel="noopener noreferrer"
           className="inline-block px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary-hover transition-colors"
         >
-          금융 상품 비교하기
+          세금 관련 도서 보기
         </a>
       </div>
       <p className="mt-2 text-xs text-muted">
