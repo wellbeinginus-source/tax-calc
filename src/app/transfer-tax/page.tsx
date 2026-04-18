@@ -5,6 +5,7 @@ import CalcInput from "@/components/CalcInput";
 import ResultRow from "@/components/ResultRow";
 import AdBanner from "@/components/AdBanner";
 import KakaoAdFit from "@/components/KakaoAdFit";
+import LeadCTA from "@/components/LeadCTA";
 import { CoupangBanner, TaxConsultCTA } from "@/components/CoupangBanner";
 
 type HoldingType = "under1y" | "1to2y" | "over2y" | "exempt";
@@ -216,6 +217,8 @@ export default function TransferTaxPage() {
           </div>
         </div>
       </div>
+
+      <LeadCTA />
 
       <KakaoAdFit />
       <AdBanner />

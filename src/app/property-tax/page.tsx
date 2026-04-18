@@ -5,6 +5,7 @@ import CalcInput from "@/components/CalcInput";
 import ResultRow from "@/components/ResultRow";
 import AdBanner from "@/components/AdBanner";
 import KakaoAdFit from "@/components/KakaoAdFit";
+import LeadCTA from "@/components/LeadCTA";
 import { CoupangBanner, TaxConsultCTA } from "@/components/CoupangBanner";
 
 type OwnerType = "single" | "multi2" | "multi3" | "corp";
@@ -143,6 +144,8 @@ export default function PropertyTaxPage() {
           </div>
         </div>
       </div>
+
+      <LeadCTA />
 
       <KakaoAdFit />
       <AdBanner />

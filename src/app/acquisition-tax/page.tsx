@@ -5,6 +5,7 @@ import CalcInput from "@/components/CalcInput";
 import ResultRow from "@/components/ResultRow";
 import AdBanner from "@/components/AdBanner";
 import KakaoAdFit from "@/components/KakaoAdFit";
+import LeadCTA from "@/components/LeadCTA";
 import { CoupangBanner, TaxConsultCTA } from "@/components/CoupangBanner";
 
 type PropertyType = "house_under6" | "house_6to9" | "house_over9" | "house_multi" | "commercial" | "land";
@@ -131,6 +132,8 @@ export default function AcquisitionTaxPage() {
           </div>
         </div>
       </div>
+
+      <LeadCTA />
 
       <KakaoAdFit />
       <AdBanner />
