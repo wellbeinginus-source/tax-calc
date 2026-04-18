@@ -14,6 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://tax-calc-five.vercel.app"),
   title: {
     default: "부동산 세금 계산기 | 양도세·취득세·종부세·임대소득세 무료 계산",
     template: "%s | 부동산 세금 계산기",
@@ -28,6 +29,8 @@ export const metadata: Metadata = {
     "부동산 세금",
     "양도소득세",
     "종합부동산세",
+    "부동산 세금 계산기",
+    "2026 부동산 세율",
   ],
   openGraph: {
     title: "부동산 세금 계산기 | 양도세·취득세·종부세·임대소득세",
@@ -35,6 +38,8 @@ export const metadata: Metadata = {
       "부동산 세금 한 곳에서 계산. 양도세, 취득세, 종부세, 임대소득세 무료 계산기.",
     type: "website",
     locale: "ko_KR",
+    url: "https://tax-calc-five.vercel.app",
+    siteName: "부동산 세금 계산기",
   },
   robots: { index: true, follow: true },
 };
