@@ -40,15 +40,12 @@ const CALCULATORS = [
 export default function Home() {
   return (
     <>
-      <section className="text-center mb-12">
-        <h1 className="text-3xl font-bold mb-3">
-          부동산 세금,
-          <br className="sm:hidden" /> 미리 계산하세요
+      <section className="text-center mb-8">
+        <h1 className="text-2xl sm:text-3xl font-bold mb-2">
+          부동산 세금, 미리 계산하세요
         </h1>
-        <p className="text-muted text-lg max-w-xl mx-auto">
-          양도소득세, 취득세, 종합부동산세, 임대소득세까지.
-          <br />
-          복잡한 부동산 세금을 쉽고 빠르게 계산하세요.
+        <p className="text-muted text-base sm:text-lg max-w-xl mx-auto">
+          양도소득세 · 취득세 · 종부세 · 임대소득세를 쉽고 빠르게 계산하세요.
         </p>
       </section>
 
