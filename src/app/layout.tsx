@@ -84,7 +84,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <header className="border-b border-card-border bg-card-bg sticky top-0 z-50">
           <div className="max-w-5xl mx-auto px-4 py-2 flex flex-col sm:flex-row sm:h-14 sm:items-center sm:justify-between gap-1">
-            <Link href="/" className="text-lg font-bold text-primary">
+            <Link href="/" className="text-lg font-bold text-primary whitespace-nowrap">
               부동산 세금 계산기
             </Link>
             <nav className="flex gap-0.5 overflow-x-auto">
