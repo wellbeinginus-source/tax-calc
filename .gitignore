@@ -45,3 +45,5 @@ next-env.d.ts
 # dev tools
 screenshots/
 take-screenshots.mjs
+
+.vercel

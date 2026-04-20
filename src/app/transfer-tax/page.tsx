@@ -215,13 +215,14 @@ export default function TransferTaxPage() {
             <div className="mt-6 p-3 bg-accent rounded-lg text-sm text-muted">
               <p className="font-medium mb-1">참고</p>
               <p>다주택자 중과세율(+20~30%p)은 현재 한시 배제 중이나 추후 부활 가능합니다. 비과세 요건·감면·조정지역 여부에 따라 실제 세금이 달라지므로 세무사 상담을 권장합니다.</p>
+              <p className="mt-1 text-xs">세율 기준: 2026년 4월 | 소득세법 기준</p>
             </div>
           </div>
         </div>
       </div>
 
       <LeadCTA />
-
+      <CoupangBanner />
       <KakaoAdFit />
       <AdBanner />
 

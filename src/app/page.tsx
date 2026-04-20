@@ -65,6 +65,32 @@ export default function Home() {
         ))}
       </div>
 
+      {/* 세금 가이드 */}
+      <section className="mt-12">
+        <h2 className="text-xl font-bold mb-4">부동산 세금 가이드</h2>
+        <div className="grid sm:grid-cols-2 gap-3">
+          {[
+            { href: "/guide/transfer-tax", title: "양도소득세 계산 방법 완벽 정리", tag: "양도세" },
+            { href: "/guide/acquisition-tax", title: "취득세 세율표 2026년 최신", tag: "취득세" },
+            { href: "/guide/property-tax", title: "종부세 계산 방법과 절세 팁", tag: "종부세" },
+            { href: "/guide/rental-income-tax", title: "분리과세 vs 종합과세 비교", tag: "임대소득세" },
+          ].map((g) => (
+            <Link
+              key={g.href}
+              href={g.href}
+              className="flex items-center gap-3 p-4 rounded-xl border border-card-border bg-card-bg hover:border-primary transition-colors"
+            >
+              <span className="text-xs font-medium px-2 py-1 rounded-full bg-primary/10 text-primary whitespace-nowrap">
+                {g.tag}
+              </span>
+              <span className="text-sm font-medium">{g.title}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <CoupangBanner />
+      <BookRecommendations />
       <KakaoAdFit width={728} height={90} />
       <AdBanner />
       <CoupangBanner />

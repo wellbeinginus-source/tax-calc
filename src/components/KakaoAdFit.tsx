@@ -1,5 +1,5 @@
 export default function KakaoAdFit({
-  unit = "DAN-Rz2bZXpfR5tnxI9y",
+  unit = "DAN-4VuVQbzpRdtgGygI",
   width = 728,
   height = 90,
 }: {

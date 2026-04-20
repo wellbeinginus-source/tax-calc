@@ -8,7 +8,7 @@ import KakaoAdFit from "@/components/KakaoAdFit";
 import LeadCTA from "@/components/LeadCTA";
 import { CoupangBanner, TaxConsultCTA } from "@/components/CoupangBanner";
 
-type PropertyType = "house_under6" | "house_6to9" | "house_over9" | "house_multi2" | "house_multi3" | "commercial" | "land";
+type PropertyType = "house_under6" | "house_6to9" | "house_over9" | "house_multi2" | "house_multi3" | "commercial" | "land" | "corp_house" | "corp_commercial";
 
 const PROPERTY_OPTIONS: { value: PropertyType; label: string; desc: string }[] = [
   { value: "house_under6", label: "주택 (6억 이하)", desc: "1주택 기준, 취득세 1%" },
@@ -18,6 +18,8 @@ const PROPERTY_OPTIONS: { value: PropertyType; label: string; desc: string }[] =
   { value: "house_multi3", label: "3주택 이상 (조정지역)", desc: "취득세 12%" },
   { value: "commercial", label: "상가·오피스텔", desc: "취득세 4%" },
   { value: "land", label: "토지", desc: "취득세 4%" },
+  { value: "corp_house", label: "법인 — 주택", desc: "취득세 12% (중과)" },
+  { value: "corp_commercial", label: "법인 — 상가·토지", desc: "취득세 4%" },
 ];
 
 function getRate(type: PropertyType, price: number) {
@@ -40,7 +42,10 @@ function getRate(type: PropertyType, price: number) {
       acqRate = 12; ruralRate = 1.0; break;
     case "commercial":
     case "land":
+    case "corp_commercial":
       acqRate = 4; ruralRate = 0.2; break;
+    case "corp_house":
+      acqRate = 12; ruralRate = 1; break;
     default:
       acqRate = 1; ruralRate = 0;
   }
@@ -130,14 +135,18 @@ export default function AcquisitionTaxPage() {
 
             <div className="mt-6 p-3 bg-accent rounded-lg text-sm text-muted">
               <p className="font-medium mb-1">참고</p>
-              <p>다주택 세율은 조정대상지역 기준이며, 비조정지역은 다를 수 있습니다.</p>
+              <p>
+                본 계산기는 참고용이며, 다주택 세율은 조정대상지역 기준입니다.
+                정확한 세액은 반드시 세무사 상담을 받으세요.
+              </p>
+              <p className="mt-1 text-xs">세율 기준: 2026년 4월 | 지방세법 기준</p>
             </div>
           </div>
         </div>
       </div>
 
       <LeadCTA />
-
+      <CoupangBanner />
       <KakaoAdFit />
       <AdBanner />
 

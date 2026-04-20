@@ -150,16 +150,17 @@ export default function RentalIncomeTaxPage() {
             <div className="mt-6 p-3 bg-accent rounded-lg text-sm text-muted">
               <p className="font-medium mb-1">참고</p>
               <p>
-                분리과세는 연간 임대 수입 2,000만원 이하일 때만 선택 가능합니다.
-                실제 세금은 각종 공제에 따라 달라질 수 있습니다.
+                본 계산기는 참고용이며, 분리과세는 연간 2,000만원 이하일 때만 선택 가능합니다.
+                정확한 세액은 반드시 세무사 상담을 받으세요.
               </p>
+              <p className="mt-1 text-xs">세율 기준: 2026년 4월 | 소득세법 기준</p>
             </div>
           </div>
         </div>
       </div>
 
       <LeadCTA />
-
+      <CoupangBanner />
       <KakaoAdFit />
       <AdBanner />
 

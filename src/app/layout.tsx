@@ -62,6 +62,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
+        <meta name="naver-site-verification" content="184c0c637db55b53d317c42dfe197e849129a7ce" />
         {/* Google Analytics */}
         <script
           async
@@ -115,7 +116,11 @@ export default function RootLayout({
             <p>
               본 계산기는 참고용이며, 정확한 세금은 세무사 상담을 권장합니다.
             </p>
-            <p className="mt-1">
+            <div className="mt-3 flex justify-center gap-4">
+              <a href="https://auction-calc.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">경매 계산기</a>
+              <a href="https://unsehanip.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">운세한입</a>
+            </div>
+            <p className="mt-2">
               운영: 온기획(ON) | &copy; {new Date().getFullYear()} 부동산 세금
               계산기. All rights reserved.
             </p>

@@ -137,13 +137,14 @@ export default function PropertyTaxPage() {
             <div className="mt-6 p-3 bg-accent rounded-lg text-sm text-muted">
               <p className="font-medium mb-1">참고</p>
               <p>공정시장가액비율·세부담 상한·고령자/장기보유 공제 등에 따라 실제 세액이 달라집니다. 매년 6월 1일 기준 부과. 정확한 계산은 세무사 상담을 권장합니다.</p>
+              <p className="mt-1 text-xs">세율 기준: 2026년 4월 | 종합부동산세법 기준</p>
             </div>
           </div>
         </div>
       </div>
 
       <LeadCTA />
-
+      <CoupangBanner />
       <KakaoAdFit />
       <AdBanner />
 
