@@ -49,7 +49,7 @@ const NAV_ITEMS = [
   { href: "/acquisition-tax", label: "취득세" },
   { href: "/property-tax", label: "종부세" },
   { href: "/rental-income-tax", label: "임대소득세" },
-  { href: "/tax-consult", label: "AI상담" },
+  { href: "/tax-consult", label: "AI Q&A" },
 ];
 
 export default function RootLayout({

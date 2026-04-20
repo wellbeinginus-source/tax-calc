@@ -96,7 +96,7 @@ export default function Home() {
           className="block p-6 rounded-xl border-2 border-primary/30 bg-primary/5 hover:border-primary hover:shadow-md transition-all text-center"
         >
           <div className="text-4xl mb-3">🤖</div>
-          <h2 className="text-lg font-bold mb-1">AI 세금 상담</h2>
+          <h2 className="text-lg font-bold mb-1">AI 세금 Q&A</h2>
           <p className="text-sm text-muted mb-2">
             부동산 세금 궁금한 점을 AI에게 물어보세요
           </p>
