@@ -1,6 +1,25 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
 export default function AdBanner() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const initialized = useRef(false);
+
+  useEffect(() => {
+    if (initialized.current) return;
+    initialized.current = true;
+
+    try {
+      const adsByGoogle = (window as any).adsbygoogle || [];
+      adsByGoogle.push({});
+    } catch {
+      // AdSense not loaded yet — ok during dev
+    }
+  }, []);
+
   return (
-    <div className="my-8 text-center">
+    <div ref={containerRef} className="my-8 text-center">
       <ins
         className="adsbygoogle"
         style={{ display: "block" }}
