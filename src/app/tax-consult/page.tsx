@@ -17,6 +17,37 @@ export default function TaxConsultPage() {
   const [step, setStep] = useState<"input" | "paying" | "generating" | "done">("input");
   const [error, setError] = useState("");
   const [agreed, setAgreed] = useState(false);
+  const [showConsultForm, setShowConsultForm] = useState(false);
+  const [consultName, setConsultName] = useState("");
+  const [consultPhone, setConsultPhone] = useState("");
+  const [consultSent, setConsultSent] = useState(false);
+  const [consultLoading, setConsultLoading] = useState(false);
+
+  async function handleConsultRequest() {
+    if (!consultName.trim() || !consultPhone.trim()) {
+      setError("이름과 연락처를 입력해주세요.");
+      return;
+    }
+    setConsultLoading(true);
+    try {
+      const res = await fetch("/api/consult-request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: consultName.trim(),
+          phone: consultPhone.trim(),
+          question,
+          aiAnswer: answer,
+        }),
+      });
+      if (!res.ok) throw new Error("신청 실패");
+      setConsultSent(true);
+    } catch {
+      setError("신청 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
+    } finally {
+      setConsultLoading(false);
+    }
+  }
 
   async function handleSubmit() {
     if (question.trim().length < 5) {
@@ -181,6 +212,66 @@ export default function TaxConsultPage() {
                 {answer}
               </div>
             </div>
+
+            {/* 세무사 연결 CTA */}
+            {!showConsultForm && !consultSent && (
+              <div className="rounded-xl border-2 border-primary/30 bg-primary/5 p-6 text-center">
+                <div className="text-3xl mb-2">👨‍💼</div>
+                <h3 className="font-bold text-lg mb-1">세무사에게 직접 상담받고 싶으신가요?</h3>
+                <p className="text-sm text-muted mb-4">
+                  AI 답변으로 부족하다면, 전문 세무사와 1:1 상담을 연결해드립니다.
+                </p>
+                <button
+                  onClick={() => setShowConsultForm(true)}
+                  className="px-6 py-3 rounded-xl bg-primary text-white font-semibold hover:bg-primary/90 transition-colors"
+                >
+                  세무사 무료 상담 신청
+                </button>
+              </div>
+            )}
+
+            {/* 세무사 상담 신청 폼 */}
+            {showConsultForm && !consultSent && (
+              <div className="rounded-xl border border-card-border bg-card-bg p-6 space-y-4">
+                <h3 className="font-bold text-lg">세무사 상담 신청</h3>
+                <p className="text-sm text-muted">연락처를 남겨주시면 세무사가 직접 연락드립니다.</p>
+                <input
+                  type="text"
+                  placeholder="이름"
+                  value={consultName}
+                  onChange={(e) => setConsultName(e.target.value)}
+                  className="w-full p-3 rounded-lg border border-card-border bg-card-bg text-base focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+                <input
+                  type="tel"
+                  placeholder="연락처 (010-0000-0000)"
+                  value={consultPhone}
+                  onChange={(e) => setConsultPhone(e.target.value)}
+                  className="w-full p-3 rounded-lg border border-card-border bg-card-bg text-base focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+                <p className="text-xs text-muted">
+                  입력하신 정보는 세무사 상담 연결 목적으로만 사용됩니다.
+                </p>
+                <button
+                  onClick={handleConsultRequest}
+                  disabled={consultLoading}
+                  className="w-full py-3 rounded-xl bg-primary text-white font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50"
+                >
+                  {consultLoading ? "신청 중..." : "상담 신청하기"}
+                </button>
+              </div>
+            )}
+
+            {/* 신청 완료 */}
+            {consultSent && (
+              <div className="rounded-xl border border-green-200 bg-green-50 p-6 text-center">
+                <div className="text-3xl mb-2">✅</div>
+                <h3 className="font-bold text-lg mb-1">신청이 완료되었습니다</h3>
+                <p className="text-sm text-muted">
+                  영업일 기준 1~2일 내로 세무사가 연락드립니다.
+                </p>
+              </div>
+            )}
 
             <button
               onClick={handleReset}
