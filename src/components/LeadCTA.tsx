@@ -5,7 +5,7 @@ export default function LeadCTA() {
       <p className="text-sm text-muted mb-4">법무사 검토 · 대출 한도 조회를 무료로 받아보세요.</p>
       <div className="flex flex-col sm:flex-row gap-3">
         <a
-          href="https://forms.kakao.com/placeholder-legal"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdCwVkyfnfPrfCxxlkn8Z6xfhqaxy708DJ6_O0fF6exSO8XPQ/viewform?usp=header"
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 text-center py-2.5 px-4 rounded-lg bg-primary text-white text-sm font-semibold hover:bg-primary-hover transition-colors"
@@ -13,7 +13,7 @@ export default function LeadCTA() {
           법무사 무료 상담 신청
         </a>
         <a
-          href="https://forms.kakao.com/placeholder-loan"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdYnxymR8ySuNLIL9ce-FmiaahnUaS04Yqbbv55kIGu1IKVtQ/viewform?usp=header"
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 text-center py-2.5 px-4 rounded-lg border border-primary text-primary text-sm font-semibold hover:bg-primary/10 transition-colors"
