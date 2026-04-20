@@ -183,8 +183,8 @@ export default function RentalIncomeTaxPage() {
         </div>
       </section>
 
-      <TaxConsultCTA />
-      <CoupangBanner />
+      <TaxConsultCTA variant="rental-income-tax" />
+      <CoupangBanner variant="rental-income-tax" />
 
       <script
         type="application/ld+json"

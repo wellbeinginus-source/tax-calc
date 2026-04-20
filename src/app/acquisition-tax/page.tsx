@@ -169,8 +169,8 @@ export default function AcquisitionTaxPage() {
         </div>
       </section>
 
-      <TaxConsultCTA />
-      <CoupangBanner />
+      <TaxConsultCTA variant="acquisition-tax" />
+      <CoupangBanner variant="acquisition-tax" />
 
       <script
         type="application/ld+json"

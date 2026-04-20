@@ -259,8 +259,8 @@ export default function TransferTaxPage() {
         </div>
       </section>
 
-      <TaxConsultCTA />
-      <CoupangBanner />
+      <TaxConsultCTA variant="transfer-tax" />
+      <CoupangBanner variant="transfer-tax" />
 
       <script
         type="application/ld+json"

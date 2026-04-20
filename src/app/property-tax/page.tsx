@@ -167,8 +167,8 @@ export default function PropertyTaxPage() {
         </div>
       </section>
 
-      <TaxConsultCTA />
-      <CoupangBanner />
+      <TaxConsultCTA variant="property-tax" />
+      <CoupangBanner variant="property-tax" />
 
       <script
         type="application/ld+json"

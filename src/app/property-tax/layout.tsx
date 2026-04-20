@@ -1,19 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "종합부동산세 계산기 | 종부세 계산 2026년 최신 세율",
-  description:
-    "주택 공시가격 합산액으로 종합부동산세를 무료로 계산하세요. 1세대1주택 12억 공제, 2주택, 3주택 이상, 법인 세율 지원. 농어촌특별세 포함. 2026년 기준.",
-  keywords: [
-    "종합부동산세 계산기",
-    "종부세 계산기",
-    "종부세 세율",
-    "종부세 공제",
-    "부동산 보유세",
-    "1세대1주택 종부세",
-  ],
+  title: "종합부동산세 계산기 — 공시가격 기준 종부세 무료 계산 | 부동산 세금 계산기",
+  description: "공시가격과 보유 주택 수를 입력하면 종합부동산세를 무료로 계산합니다. 1세대 1주택 특별공제, 세율 적용까지 2026년 기준으로 자동 계산합니다.",
+  keywords: ["종합부동산세 계산기", "종부세 계산", "종부세 계산기", "부동산 세금", "공시가격"],
+  openGraph: {
+    title: "종합부동산세 계산기 — 공시가격 기준 종부세",
+    description: "공시가격·주택수 입력하면 종부세 자동 계산. 무료.",
+    type: "website",
+  },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return children;
+  return <>{children}</>;
 }
