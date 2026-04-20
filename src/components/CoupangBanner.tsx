@@ -29,7 +29,7 @@ export function CoupangBanner() {
         rel="noopener noreferrer"
         className="inline-block px-6 py-3 bg-[#e52528] text-white font-bold rounded-lg hover:bg-[#c91f22] transition-colors"
       >
-        쿠팡 오늘의 특가 보러가기
+        부동산 절세 도서 베스트셀러 보기
       </a>
       <p className="mt-2 text-xs text-muted">
         이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를
