@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
 
     // Claude API 호출
     const message = await client.messages.create({
-      model: "claude-sonnet-4-6-20250514",
+      model: "claude-sonnet-4-6",
       max_tokens: 2048,
       system: SYSTEM_PROMPT,
       messages: [{ role: "user", content: question.trim() }],
