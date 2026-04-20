@@ -119,7 +119,6 @@ export default function RootLayout({
             </p>
             <div className="mt-3 flex justify-center gap-4">
               <a href="https://auction-calc.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">경매 계산기</a>
-              <a href="https://unsehanip.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">운세한입</a>
             </div>
             <p className="mt-2">
               운영: 온기획(ON) | &copy; {new Date().getFullYear()} 부동산 세금
