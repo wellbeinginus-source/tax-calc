@@ -89,6 +89,23 @@ export default function Home() {
         </div>
       </section>
 
+      {/* AI 세금 상담 CTA */}
+      <section className="mt-12">
+        <Link
+          href="/tax-consult"
+          className="block p-6 rounded-xl border-2 border-primary/30 bg-primary/5 hover:border-primary hover:shadow-md transition-all text-center"
+        >
+          <div className="text-4xl mb-3">🤖</div>
+          <h2 className="text-lg font-bold mb-1">AI 세금 상담</h2>
+          <p className="text-sm text-muted mb-2">
+            부동산 세금 궁금한 점을 AI에게 물어보세요
+          </p>
+          <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-primary text-white">
+            건당 1,900원 · 카카오페이
+          </span>
+        </Link>
+      </section>
+
       <CoupangBanner />
       <BookRecommendations />
       <KakaoAdFit width={728} height={90} />
